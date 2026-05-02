@@ -21,9 +21,6 @@ public class TestSelenium_04_Assertions_TestNG {
 
         assertThat(driver.getCurrentUrl()).isNotEmpty().isNotNull().isEqualTo("https://www.google.com/");
 
-
-
-
         driver.quit();
 
     }
