@@ -33,6 +33,6 @@ public class TestSelenium07 {
 
         Assert.assertEquals(element.getText(),"Your email, password, IP address or location did not match");
 
-        //driver.quit();
+        driver.quit();
     }
 }
