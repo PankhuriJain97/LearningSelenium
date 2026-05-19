@@ -1,5 +1,6 @@
 package com.thetestingacademy.ex_07_Waits;
 
+import com.thetestingacademy.CommonToAll;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class TestSelenium17MiniProjExplicitWait {
+public class TestSelenium17MiniProjExplicitWait extends CommonToAll {
 
     @Test
 
@@ -19,14 +20,22 @@ public class TestSelenium17MiniProjExplicitWait {
     {
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://www.makemytrip.com/");
+       // driver.get("https://www.makemytrip.com/");
+
+        OpenBrowser(driver,"https://www.makemytrip.com/");
 
         //explicit wait
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-cy='closeModal']")));
+        //WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-cy='closeModal']")));
 
-        element.click();
+
+        //using common method
+        WaitUntil(driver,10,"//span[@data-cy='closeModal']");
+
+        ClickElementFound("//span[@data-cy='closeModal']");
+//        WebElement element = driver.findElement(By.xpath("//span[@data-cy='closeModal']"));
+//        element.click();
 
         driver.quit();
     }
