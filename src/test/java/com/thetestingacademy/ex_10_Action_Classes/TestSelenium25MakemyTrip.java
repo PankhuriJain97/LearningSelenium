@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class TestSelenium25MakemyTrip extends CommonToAll {
 
     @Test
@@ -41,6 +43,46 @@ public class TestSelenium25MakemyTrip extends CommonToAll {
         Thread.sleep(2000);
 
         actions.moveToElement(from).click().sendKeys("DEL").build().perform();
+
+        //driver.findElement(By.xpath("//span[text() = 'New Delhi, India']")).click();
+
+        Thread.sleep(2000);
+
+        try{
+            List<WebElement> places = driver.findElements(By.xpath("//ul[@class='react-autosuggest__suggestions-list']/li"));
+
+            for(WebElement place : places)
+            {
+                if(place.getText().contains("New Delhi"))
+                {
+                    place.click();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        Thread.sleep(2000);
+
+        WebElement to = driver.findElement(By.xpath("//input[@data-cy='toCity']"));
+
+        actions.moveToElement(to).click().sendKeys("tok").build().perform();
+
+        Thread.sleep(2000);
+
+        try{
+            List<WebElement> places = driver.findElements(By.xpath("//ul[@class='react-autosuggest__suggestions-list']/li"));
+
+            for(WebElement place : places)
+            {
+                if(place.getText().contains("Tokyo"))
+                {
+                    place.click();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
 
     }
