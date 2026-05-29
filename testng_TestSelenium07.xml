@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Locators"   >
         <packages>
-            <package name="com.thetestingacademy.ex_02_Locators" />
+            <package name="com.thetestingacademy" />
         </packages>
     </test>
 </suite>
